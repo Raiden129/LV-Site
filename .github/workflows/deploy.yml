@@ -1,0 +1,42 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  # push:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'functions/**'
+  #     - 'manga.json'
+  #     - 'index.html'
+  #     - 'admin.html'
+  #     - 'app.js'
+  #     - 'admin.js'
+  #     - 'styles.css'
+  #     - 'admin.css'
+  #     - '_headers'
+  #     - '_redirects'
+
+  # Manual trigger ONLY (via Admin Panel or GitHub UI)
+  workflow_dispatch:
+
+# Grant permissions for deployments
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: leslie-victims
+          directory: .
+          # Optional: Add a custom commit message
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

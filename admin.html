@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v14/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    </noscript>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <svg style="display: none;">
+        <symbol id="icon-book" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+        </symbol>
+        <symbol id="icon-dashboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="9"></rect>
+            <rect x="14" y="3" width="7" height="5"></rect>
+            <rect x="14" y="12" width="7" height="9"></rect>
+            <rect x="3" y="16" width="7" height="5"></rect>
+        </symbol>
+        <symbol id="icon-library" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            <line x1="8" y1="6" x2="16" y2="6"></line>
+            <line x1="8" y1="10" x2="14" y2="10"></line>
+        </symbol>
+        <symbol id="icon-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="17 8 12 3 7 8"></polyline>
+            <line x1="12" y1="3" x2="12" y2="15"></line>
+        </symbol>
+        <symbol id="icon-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+        </symbol>
+        <symbol id="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+        </symbol>
+        <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </symbol>
+        <symbol id="icon-arrow-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </symbol>
+        <symbol id="icon-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+        </symbol>
+        <symbol id="icon-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="3 6 5 6 21 6"></polyline>
+            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            <line x1="10" y1="11" x2="10" y2="17"></line>
+            <line x1="14" y1="11" x2="14" y2="17"></line>
+        </symbol>
+        <symbol id="icon-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+        </symbol>
+        <symbol id="icon-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+        </symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+        </symbol>
+        <symbol id="icon-chapters" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="8" y1="6" x2="21" y2="6"></line>
+            <line x1="8" y1="12" x2="21" y2="12"></line>
+            <line x1="8" y1="18" x2="21" y2="18"></line>
+            <line x1="3" y1="6" x2="3.01" y2="6"></line>
+            <line x1="3" y1="12" x2="3.01" y2="12"></line>
+            <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </symbol>
+        <symbol id="icon-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+        </symbol>
+        <symbol id="icon-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </symbol>
+        <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </symbol>
+        <symbol id="icon-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+        </symbol>
+        <symbol id="icon-eye-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+                d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24">
+            </path>
+            <line x1="1" y1="1" x2="23" y2="23"></line>
+        </symbol>
+        <symbol id="icon-external" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+            <polyline points="15 3 21 3 21 9"></polyline>
+            <line x1="10" y1="14" x2="21" y2="3"></line>
+        </symbol>
+        <symbol id="icon-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+            <path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z">
+            </path>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+        </symbol>
+        <symbol id="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </symbol>
+        <symbol id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </symbol>
+    </svg>
+
+    <div id="login-screen" class="login-container">
+        <div class="login-box">
+            <div class="login-header">
+                <div class="login-icon">
+                    <svg class="icon-lg">
+                        <use href="#icon-book" />
+                    </svg>
+                </div>
+                <h1>Manga Admin</h1>
+                <p>Enter your GitHub token to continue</p>
+            </div>
+            <div class="login-form">
+                <label>GitHub Personal Access Token</label>
+                <div class="token-input-wrapper">
+                    <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
+                    <button class="toggle-visibility" onclick="toggleTokenVisibility()" title="Show/Hide">
+                        <svg class="icon-sm icon-show">
+                            <use href="#icon-eye" />
+                        </svg>
+                        <svg class="icon-sm icon-hide hidden">
+                            <use href="#icon-eye-off" />
+                        </svg>
+                    </button>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="login()">
+                    <span>Sign In</span>
+                    <svg class="icon-sm">
+                        <use href="#icon-arrow-right" />
+                    </svg>
+                </button>
+                <div class="login-help">
+                    <a href="https://github.com/settings/tokens" target="_blank">
+                        Generate a token on GitHub
+                        <svg class="icon-xs">
+                            <use href="#icon-external" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="app" class="app-container hidden">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <svg class="icon-md">
+                    <use href="#icon-book" />
+                </svg>
+                <span class="logo-text">Manga Admin</span>
+            </div>
+
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="dashboard" onclick="switchView('dashboard')">
+                    <svg class="icon-sm">
+                        <use href="#icon-dashboard" />
+                    </svg>
+                    <span>Dashboard</span>
+                </button>
+                <button class="nav-item" data-view="series" onclick="switchView('series')">
+                    <svg class="icon-sm">
+                        <use href="#icon-library" />
+                    </svg>
+                    <span>All Series</span>
+                </button>
+                <button class="nav-item" data-view="upload" onclick="switchView('upload')">
+                    <svg class="icon-sm">
+                        <use href="#icon-upload" />
+                    </svg>
+                    <span>Upload</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="btn-deploy" onclick="triggerMaintenance()"
+                    style="margin-bottom: 8px; background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-primary);">
+                    <svg class="icon-sm">
+                        <use href="#icon-folder" />
+                    </svg>
+                    <span>Run Maintenance</span>
+                </button>
+                <button class="btn-deploy" onclick="triggerDeploy()" id="btn-deploy">
+                    <svg class="icon-sm">
+                        <use href="#icon-rocket" />
+                    </svg>
+                    <span>Deploy Site</span>
+                </button>
+                <button class="btn-theme" onclick="toggleTheme()">
+                    <svg class="icon-sm icon-sun">
+                        <use href="#icon-sun" />
+                    </svg>
+                    <svg class="icon-sm icon-moon hidden">
+                        <use href="#icon-moon" />
+                    </svg>
+                    <span>Switch Theme</span>
+                </button>
+
+                <button class="btn-logout" onclick="logout()">
+                    <svg class="icon-sm">
+                        <use href="#icon-logout" />
+                    </svg>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section id="view-dashboard" class="view active">
+                <header class="view-header">
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p class="subtitle">Overview of your manga library</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="switchView('upload')">
+                        <svg class="icon-sm">
+                            <use href="#icon-plus" />
+                        </svg>
+                        <span>New Upload</span>
+                    </button>
+                </header>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg class="icon-md">
+                                <use href="#icon-library" />
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-series">0</span>
+                            <span class="stat-label">Total Series</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg class="icon-md">
+                                <use href="#icon-chapters" />
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-chapters">0</span>
+                            <span class="stat-label">Total Chapters</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg class="icon-md">
+                                <use href="#icon-folder" />
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-value" id="stat-local">...</span>
+                            <span class="stat-label">Local Capacity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-header-left">
+                            <div class="section-header-accent"></div>
+                            <h2>Recent Series</h2>
+                        </div>
+                        <a href="#" class="section-link" onclick="switchView('series'); return false;">
+                            View All
+                            <svg class="icon-xs">
+                                <use href="#icon-arrow-right" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div id="recent-series" class="grid-series">
+                        
+                    </div>
+                </div>
+            </section>
+
+            
+            <section id="view-series" class="view">
+                <header class="view-header">
+                    <div>
+                        <h1>All Series</h1>
+                        <p class="subtitle">Manage your manga collection</p>
+                    </div>
+                    <div class="header-actions">
+                        <div class="search-box">
+                            <svg class="icon-sm search-icon">
+                                <use href="#icon-search" />
+                            </svg>
+                            <input type="text" id="search-series" placeholder="Search series..."
+                                oninput="filterSeries()">
+                        </div>
+                        <button class="btn btn-primary" onclick="showNewSeriesModal()">
+                            <svg class="icon-sm">
+                                <use href="#icon-plus" />
+                            </svg>
+                            <span>New Series</span>
+                        </button>
+                    </div>
+                </header>
+
+                <div id="series-list" class="series-list">
+                    
+                </div>
+            </section>
+
+            
+            <section id="view-series-detail" class="view">
+                <header class="view-header">
+                    <div class="breadcrumb">
+                        <a href="#" onclick="switchView('series'); return false;">
+                            <svg class="icon-xs">
+                                <use href="#icon-arrow-left" />
+                            </svg>
+                            Back to Series
+                        </a>
+                    </div>
+                </header>
+
+                <div class="series-detail-header">
+                    <div class="series-cover-wrapper">
+                        <img id="detail-cover" src="" alt="Cover">
+                        <button class="btn-change-cover" onclick="changeCover()">
+                            <svg class="icon-sm">
+                                <use href="#icon-camera" />
+                            </svg>
+                            <span>Change Cover</span>
+                        </button>
+                    </div>
+                    <div class="series-info">
+                        <h1 id="detail-title">Series Title</h1>
+                        <div class="series-meta">
+                            <span id="detail-chapters-count">0 Chapters</span>
+                        </div>
+                        <div class="series-actions">
+                            <button class="btn btn-secondary" onclick="uploadToSeries()">
+                                <svg class="icon-sm">
+                                    <use href="#icon-upload" />
+                                </svg>
+                                <span>Upload Chapter</span>
+                            </button>
+                            <button class="btn btn-danger" onclick="deleteSeries()">
+                                <svg class="icon-sm">
+                                    <use href="#icon-trash" />
+                                </svg>
+                                <span>Delete Series</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header">
+                        <div class="section-header-left">
+                            <div class="section-header-accent"></div>
+                            <h2>Chapters</h2>
+                        </div>
+                        <button class="btn btn-secondary btn-sm" onclick="uploadToSeries()">
+                            <svg class="icon-xs">
+                                <use href="#icon-plus" />
+                            </svg>
+                            <span>Add Chapter</span>
+                        </button>
+                    </div>
+                    <div id="chapter-list" class="chapter-list">
+                        
+                    </div>
+                </div>
+            </section>
+
+            <section id="view-chapter-detail" class="view">
+                <header class="view-header">
+                    <div class="breadcrumb">
+                        <a href="#" id="back-to-series-link">
+                            <svg class="icon-xs">
+                                <use href="#icon-arrow-left" />
+                            </svg>
+                            Back to <span id="breadcrumb-series-name">Series</span>
+                        </a>
+                    </div>
+                    <div class="header-actions">
+                        <button class="btn btn-secondary" onclick="uploadMoreImages()">
+                            <svg class="icon-sm">
+                                <use href="#icon-upload" />
+                            </svg>
+                            <span>Add Images</span>
+                        </button>
+                        <button class="btn btn-danger" id="btn-delete-selected" onclick="deleteSelectedImages()"
+                            disabled>
+                            <svg class="icon-sm">
+                                <use href="#icon-trash" />
+                            </svg>
+                            <span>Delete Selected</span>
+                        </button>
+                    </div>
+                </header>
+
+                <div class="chapter-header">
+                    <h1>Chapter <span id="detail-chapter-num">1</span></h1>
+                    <span class="chapter-badge" id="detail-image-count">0 images</span>
+                </div>
+
+                <div class="bulk-actions hidden" id="bulk-actions">
+                    <label class="select-all-wrapper">
+                        <input type="checkbox" id="select-all-images" onchange="toggleSelectAll()">
+                        <span>Select All</span>
+                    </label>
+                    <div class="selected-count"><span id="selected-count">0</span> selected</div>
+                    <button class="btn btn-danger btn-sm" onclick="deleteSelectedImages()">Delete Selected</button>
+                    <button class="btn btn-secondary btn-sm" onclick="clearSelection()">Clear</button>
+                </div>
+
+                <div id="image-grid" class="image-grid">
+                    
+                </div>
+            </section>
+
+            
+            <section id="view-upload" class="view">
+                <header class="view-header">
+                    <div>
+                        <h1>Upload</h1>
+                        <p class="subtitle">Add new content to your library</p>
+                    </div>
+                </header>
+
+                <div class="upload-container">
+                    <div class="upload-form">
+                        <div class="form-group">
+                            <label>Series</label>
+                            <div class="input-with-action">
+                                <input type="text" id="upload-series" list="upload-series-list"
+                                    placeholder="Select or type new series name..." autocomplete="off">
+                                <datalist id="upload-series-list"></datalist>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group flex-1">
+                                <label>Upload Type</label>
+                                <div class="radio-group">
+                                    <label class="radio-option active">
+                                        <input type="radio" name="upload-type" value="chapter" checked
+                                            onchange="updateUploadType()">
+                                        <svg class="icon-sm">
+                                            <use href="#icon-file" />
+                                        </svg>
+                                        <span class="radio-label">Chapter</span>
+                                    </label>
+                                    <label class="radio-option">
+                                        <input type="radio" name="upload-type" value="cover"
+                                            onchange="updateUploadType()">
+                                        <svg class="icon-sm">
+                                            <use href="#icon-image" />
+                                        </svg>
+                                        <span class="radio-label">Cover</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group" id="chapter-num-group">
+                                <label>Chapter Number</label>
+                                <input type="text" id="upload-chapter" placeholder="e.g. 72">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Files</label>
+                            <div class="drop-zone" id="drop-zone">
+                                <input type="file" id="upload-files" multiple accept=".webp,.jpg,.png,.jpeg,.gif">
+                                <div class="drop-zone-content">
+                                    <svg class="icon-xl">
+                                        <use href="#icon-folder" />
+                                    </svg>
+                                    <span class="drop-text">Drag & drop files here</span>
+                                    <span class="drop-subtext">or click to browse</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="file-preview" class="file-preview hidden">
+                            <div class="preview-header">
+                                <span><strong id="file-count">0</strong> files selected</span>
+                                <button class="btn-text" onclick="clearFiles()">Clear All</button>
+                            </div>
+                            <div id="preview-list" class="preview-list">
+                                
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block btn-lg" id="btn-start-upload" onclick="startUpload()"
+                            disabled>
+                            <span>Start Upload</span>
+                            <svg class="icon-sm">
+                                <use href="#icon-arrow-right" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div id="upload-progress" class="upload-progress hidden">
+                        <div class="progress-header">
+                            <h3>Uploading...</h3>
+                            <span id="progress-text">0 / 0</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill"></div>
+                        </div>
+                        <div id="upload-log" class="upload-log">
+                            
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </section>
+        </main>
+    </div>
+
+    
+    <div id="modal-overlay" class="modal-overlay hidden" onclick="closeModal()"></div>
+
+    <div id="modal-new-series" class="modal hidden">
+        <div class="modal-header">
+            <h2>Create New Series</h2>
+            <button class="modal-close" onclick="closeModal()">
+                <svg class="icon-sm">
+                    <use href="#icon-x" />
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Series Name</label>
+                <input type="text" id="new-series-name" placeholder="Enter series name...">
+            </div>
+            <div class="form-group">
+                <label>Cover Image (Optional)</label>
+                <input type="file" id="new-series-cover" accept=".webp,.jpg,.png,.jpeg">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="createNewSeries()">Create Series</button>
+        </div>
+    </div>
+
+    <div id="modal-confirm" class="modal hidden">
+        <div class="modal-header">
+            <h2 id="confirm-title">Confirm</h2>
+            <button class="modal-close" onclick="closeModal()">
+                <svg class="icon-sm">
+                    <use href="#icon-x" />
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p id="confirm-message">Are you sure?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-danger" id="confirm-action-btn" onclick="">Confirm</button>
+        </div>
+    </div>
+
+    <div id="modal-upload-images" class="modal hidden">
+        <div class="modal-header">
+            <h2>Add Images to Chapter</h2>
+            <button class="modal-close" onclick="closeModal()">
+                <svg class="icon-sm">
+                    <use href="#icon-x" />
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Select Images</label>
+                <input type="file" id="modal-upload-files" multiple accept=".webp,.jpg,.png,.jpeg,.gif">
+            </div>
+            <div id="modal-upload-log" class="upload-log"></div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-primary" id="modal-upload-btn" onclick="uploadModalImages()">Upload</button>
+        </div>
+    </div>
+
+    <div id="modal-change-cover" class="modal hidden">
+        <div class="modal-header">
+            <h2>Change Cover Image</h2>
+            <button class="modal-close" onclick="closeModal()">
+                <svg class="icon-sm">
+                    <use href="#icon-x" />
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label>Select New Cover</label>
+                <input type="file" id="modal-cover-file" accept=".webp,.jpg,.png,.jpeg">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" onclick="closeModal()">Cancel</button>
+            <button class="btn btn-primary" onclick="uploadNewCover()">Upload Cover</button>
+        </div>
+    </div>
+
+    
+    <div id="modal-deploy" class="modal modal-deploy hidden">
+        <div class="modal-header">
+            <h2><svg class="icon-sm">
+                    <use href="#icon-rocket" />
+                </svg> Deploying Site</h2>
+        </div>
+        <div class="modal-body">
+            <div class="deploy-status">
+                <div class="deploy-step" id="deploy-step-trigger">
+                    <span class="step-icon">⏳</span>
+                    <span class="step-text">Triggering workflow...</span>
+                </div>
+                <div class="deploy-step" id="deploy-step-queue">
+                    <span class="step-icon">○</span>
+                    <span class="step-text">Queued</span>
+                </div>
+                <div class="deploy-step" id="deploy-step-build">
+                    <span class="step-icon">○</span>
+                    <span class="step-text">Building...</span>
+                </div>
+                <div class="deploy-step" id="deploy-step-deploy">
+                    <span class="step-icon">○</span>
+                    <span class="step-text">Deploying to Cloudflare...</span>
+                </div>
+                <div class="deploy-step" id="deploy-step-done">
+                    <span class="step-icon">○</span>
+                    <span class="step-text">Complete!</span>
+                </div>
+            </div>
+            <div class="progress-bar" style="margin-top: 20px;">
+                <div class="progress-fill deploy-progress-fill" id="deploy-progress-fill"></div>
+            </div>
+            <p id="deploy-status-text" style="text-align: center; margin-top: 15px; color: var(--text-muted);">
+                Starting...</p>
+        </div>
+    </div>
+
+    
+    <div id="modal-delete-progress" class="modal hidden">
+        <div class="modal-header">
+            <h2 style="color: #ef4444;"><svg class="icon-sm" style="color:#ef4444">
+                    <use href="#icon-trash" />
+                </svg> Deleting...</h2>
+            <button class="modal-close" onclick="closeModal()">
+                <svg class="icon-sm">
+                    <use href="#icon-x" />
+                </svg>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="progress-header" style="margin-bottom: 10px; display:flex; justify-content:space-between;">
+                <span style="font-weight:600; font-size:0.9rem;">Progress</span>
+                <span id="delete-progress-text" style="color:var(--text-secondary);">0 / 0</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill delete-fill" id="delete-progress-fill"></div>
+            </div>
+            <div id="delete-log" class="upload-log"
+                style="margin-top: 15px; border-top: 1px solid var(--border-subtle); padding-top: 10px;"></div>
+        </div>
+    </div>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <script src="dist/admin.bundle.js" defer></script>
+</body>
+
+</html>
