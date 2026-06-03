@@ -1,0 +1,35 @@
+[
+  {
+    "id": "demo-novel-series-a",
+    "title": "Demo Novel Series A",
+    "cover": "content/novels/demo-novel-a/cover.webp",
+    "chapters": [
+      {
+        "number": "1",
+        "title": "Chapter 1",
+        "file": "001.md"
+      },
+      {
+        "number": "2",
+        "title": "Chapter 2",
+        "file": "002.md"
+      }
+    ],
+    "chapter_roots": {},
+    "updated": "2026-06-03T12:00:00.000Z"
+  },
+  {
+    "id": "demo-novel-series-b",
+    "title": "Demo Novel Series B",
+    "cover": "content/novels/demo-novel-b/cover.webp",
+    "chapters": [
+      {
+        "number": "1",
+        "title": "Chapter 1",
+        "file": "001.md"
+      }
+    ],
+    "chapter_roots": {},
+    "updated": "2026-06-03T12:00:00.000Z"
+  }
+]

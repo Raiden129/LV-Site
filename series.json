@@ -1,0 +1,20 @@
+[
+  {
+    "id": "demo-comic-series-a",
+    "title": "Demo Comic Series A",
+    "cover": "content/Demo Comic Series A/cover.webp",
+    "chapters": [
+      "01"
+    ],
+    "chapter_roots": {}
+  },
+  {
+    "id": "demo-comic-series-b",
+    "title": "Demo Comic Series B",
+    "cover": "content/Demo Comic Series B/cover.webp",
+    "chapters": [
+      "01"
+    ],
+    "chapter_roots": {}
+  }
+]

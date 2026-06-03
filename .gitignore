@@ -1,0 +1,14 @@
+
+node_modules/
+
+
+.agent/
+
+
+package-lock.json
+
+
+docs/
+Novel_Implementation.md
+standards.md
+task.md
